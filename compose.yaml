@@ -15,7 +15,7 @@ services:
       - ros-network
 
   rviz:
-    image: ros-rviz
+    image: oucompsci/ros:latest
     container_name: rviz
     command: rviz
     depends_on:
@@ -42,7 +42,7 @@ services:
       - ros-network
 
   rosbash:
-    image: ros-mcptam
+    image: oucompsci/ros:latest
     container_name: rosbash
     command: bash
     depends_on:
