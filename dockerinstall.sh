@@ -10,7 +10,6 @@ sudo groupadd docker
 fi
 if ! groups | grep -q docker; then
 sudo usermod -aG docker $USER
-newgrp docker
 fi
 
 cd 
