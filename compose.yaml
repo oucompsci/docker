@@ -4,7 +4,7 @@ networks:
 
 services:
   roscore:
-    image: oucompsci/ros:${rosdockerversion}
+    image: oucompsci/ros:20.04
     container_name: roscore
     command: roscore
     restart: unless-stopped
@@ -13,7 +13,7 @@ services:
       - ros-network
 
   rviz:
-    image: oucompsci/ros:${rosdockerversion}
+    image: oucompsci/ros:20.04
     container_name: rviz
     command: rviz
     depends_on:
@@ -38,7 +38,7 @@ services:
     tty: true
 
   rosbash:
-    image: oucompsci/ros:${rosdockerversion}
+    image: oucompsci/ros:20.04
     container_name: rosbash
     command: bash
     depends_on:
