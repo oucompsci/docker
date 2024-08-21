@@ -22,7 +22,7 @@ services:
       - DISPLAY=${DISPLAY}
       - "ROS_MASTER_URI=http://roscore:11311"
       - QT_X11_NO_MITSHM=1 # Fix a bug with QT
-    user: ${UID}
+    user: $DOCKER_USER
     volumes:
       - ${HOME}/.Xauthority:/root/.Xauthority:rw
       - /tmp/.X11-unix:/tmp/.X11-unix
