@@ -15,7 +15,7 @@ services:
   rviz:
     image: oucompsci/ros:20.04
     container_name: rviz
-    command: rviz
+    command: bash
     depends_on:
       - roscore
     environment:
@@ -34,18 +34,5 @@ services:
     privileged: true
     networks:
       - ros-network
-    stdin_open: true
-    tty: true
-
-  rosbash:
-    image: oucompsci/ros:20.04
-    container_name: rosbash
-    command: bash
-    depends_on:
-      - roscore
-    networks:
-      - ros-network
-    environment:
-      - "ROS_MASTER_URI=http://roscore:11311"
     stdin_open: true
     tty: true
