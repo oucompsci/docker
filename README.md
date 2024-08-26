@@ -24,10 +24,18 @@ echo "xhost +si:localuser:root" >> ~/.bashrc
 ```
 #If you cloned into your home folder
 cd ~/rosdocker
+```
+This command will start the rviz container and attach your terminal to it.
+```
 docker compose run rviz
 ```
-7. This command will start the rviz container and attach your terminal to it. To start rviz, run:
+7. To start rviz, run:
 ```
 rviz
 ```
 8. Use ROS as normal, making sure to save files in the home directory inside the container.
+
+Potentially useful info.
+- If you exited the rviz container and want to restart it, you can do so from the rosdocker folder with the ```docker compose run rviz``` command.
+- You can keep up to date with changes to this repo by running ```git pull``` in the rosdocker folder.
+- ```docker compose ps --all``` will list all containers. You can remove ones you don't want with ```docker rm```.
