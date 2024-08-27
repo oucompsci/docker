@@ -1,5 +1,4 @@
-﻿This is a Docker compose setup designed to run ROS and RVIZ. There are three containers specified in the compose.yaml file, each serving a different purpose.
-The roscore container provides the core ROS server and environment, rviz supports RVIZ and visual components, whilst rosbash is for command line only.
+﻿This is a Docker compose setup designed to run ROS and RVIZ. 
 The compose file makes the home folder available to the Docker containers, and files should be saved there. Files saved outside of the home directory may not be persistent if the Docker container is stopped and restarted.
 Please repost any issues or questions to your instructor, and feel free to modify the configuration to suit your needs.
 
@@ -13,6 +12,10 @@ Setup procedures. Note that these steps and the Docker setup as a whole are tail
 ```
 sudo apt update && sudo apt upgrade -y
 sudo apt install git x11-utils x11-xserver-utils x11-session-utils -y
+
+```
+Start here if you are on the lab machines. 
+```
 git clone https://github.com/oucompsci/rosdocker
 
 #These commands should not be run again unless you intentionally remove these lines from your .bashrc file
@@ -25,17 +28,18 @@ echo "xhost +si:localuser:root" >> ~/.bashrc
 #If you cloned into your home folder
 cd ~/rosdocker
 ```
-This command will start the rviz container and attach your terminal to it.
+This command will start the ros container and attach your terminal to it.
 ```
-docker compose run rviz
+docker compose run ros
 ```
-7. To start rviz, run:
+7. To start roscore, run:
 ```
-rviz
+roscore
 ```
-8. Use ROS as normal, making sure to save files in the home directory inside the container.
+8. Backgroud roscore with Ctrl+z, then run ```rviz```
+89. Use ROS as normal, making sure to save files in the home directory inside the container.
 
 Potentially useful info.
-- If you exited the rviz container and want to restart it, you can do so from the rosdocker folder with the ```docker compose run rviz``` command.
+- If you exited the container and want to restart it, you can do so from the rosdocker folder with the ```docker compose run ros``` command.
 - You can keep up to date with changes to this repo by running ```git pull``` in the rosdocker folder.
 - ```docker compose ps --all``` will list all containers. You can remove ones you don't want with ```docker rm```.
