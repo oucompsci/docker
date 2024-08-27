@@ -3,21 +3,10 @@ networks:
     driver: bridge
 
 services:
-  roscore:
+  ros:
     image: oucompsci/ros:20.04
-    container_name: roscore
-    command: roscore
-    restart: unless-stopped
-
-    networks:
-      - ros-network
-
-  rviz:
-    image: oucompsci/ros:20.04
-    container_name: rviz
+    container_name: ros
     command: bash
-    depends_on:
-      - roscore
     environment:
       - DISPLAY=${DISPLAY}
       - "ROS_MASTER_URI=http://roscore:11311"
