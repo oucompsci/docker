@@ -28,15 +28,19 @@ echo "xhost +si:localuser:root" >> ~/.bashrc
 #If you cloned into your home folder
 cd ~/rosdocker
 ```
-This command will start the ros container and attach your terminal to it.
+This command will start the ros container in the background. You may have to press enter after it runs to get your cursor back.
 ```
-docker compose run ros
+docker compose run ros &
 ```
-7. To start roscore, run:
+7. To get a terminal inside the container, run this command.
+```
+docker compose exec -it ros bash
+```
+8. To start roscore, run:
 ```
 roscore
 ```
-8. Backgroud roscore with Ctrl+z, then run ```rviz```
+8. Backgroud roscore with Ctrl+z(or run roscore &), then run ```rviz```
 89. Use ROS as normal, making sure to save files in the home directory inside the container.
 
 Potentially useful info.
