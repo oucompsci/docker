@@ -30,7 +30,7 @@ cd ~/rosdocker
 ```
 This command will start the ros container in the background. You may have to press enter after it runs to get your cursor back.
 ```
-docker compose run ros &
+docker compose up &
 ```
 7. To get a terminal inside the container, run this command.
 ```
@@ -41,7 +41,7 @@ docker compose exec -it ros bash
 roscore
 ```
 8. Backgroud roscore with Ctrl+z(or run roscore &), then run ```rviz```
-89. Use ROS as normal, making sure to save files in the home directory inside the container.
+9. Use ROS as normal, making sure to save files in the home directory inside the container.
 
 Potentially useful info.
 - If you exited the container and want to restart it, you can do so from the rosdocker folder with the ```docker compose run ros``` command.
