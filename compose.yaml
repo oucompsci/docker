@@ -2,18 +2,18 @@ services:
   ros:
     image: oucompsci/ros:20.04
     container_name: ros
-    command: bash
+    command: /entrypoint.sh
     environment:
       - DISPLAY=${DISPLAY}
       - "ROS_MASTER_URI=http://localhost:11311"
       - QT_X11_NO_MITSHM=1 # Fix a bug with QT
-    user: ${UID}
+      - DOCKER_UID=${DOCKER_UID}
+      - DOCKER_USER=${USER}
+    ports:
+      - "11311:11311"
     volumes:
       - ${HOME}/.Xauthority:/root/.Xauthority:rw
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - /etc/group:/etc/group:ro
-      - /etc/shadow:/etc/shadow:ro
-      - /etc/sudoers:/etc/sudoers:ro
       - /etc/sudoers.d:/etc/sudoers.d:ro
       - /home/${USER}:/home/${USER}:rw #share your home with write permissions
     privileged: true
