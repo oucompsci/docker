@@ -1,6 +1,6 @@
 services:
   ros:
-    image: oucompsci/ros:20.04
+    image: oucompsci/ros:latest
     container_name: ros
     command: /entrypoint.sh
     environment:
