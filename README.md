@@ -20,7 +20,7 @@ git clone https://github.com/oucompsci/rosdocker
 
 #These commands should not be run again unless you intentionally remove these lines from your .bashrc file
 echo "export DOCKER_UID=$(id -u)" >> ~/.bashrc
-echo "xhost +si:localuser:root" >> ~/.bashrc
+echo "xhost +si:localuser:$USER" >> ~/.bashrc
 echo "if [[ -f /opt/ros/noetic/setup.bash ]]; then source /opt/ros/noetic/setup.bash; fi" >> ~/.bashrc
 
 ```
