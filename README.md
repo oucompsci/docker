@@ -20,7 +20,7 @@ git clone https://github.com/oucompsci/rosdocker
 
 #These commands should not be run again unless you intentionally remove these lines from your .bashrc file
 echo "export DOCKER_UID=$(id -u)" >> ~/.bashrc
-echo "xhost +si:localuser:$USER" >> ~/.bashrc
+echo "xhost +local:" >> ~/.bashrc
 echo "if [[ -f /opt/ros/noetic/setup.bash ]]; then source /opt/ros/noetic/setup.bash; fi" >> ~/.bashrc
 
 ```
@@ -37,6 +37,9 @@ This will only modify the local image, and if you delete that your changes will 
 ```
 docker compose run ros
 ```
+As an alternative, you can run ```docker compose up &``` to start the container, then run the command in step 8 to log into it.
+This container will be persistent, as long as you start it with docker compose up.
+
 8. To get a second terminal inside the container, run this command in a new terminal window, in the same folder.
 ```
 docker compose exec -it ros /entrypoint.sh
